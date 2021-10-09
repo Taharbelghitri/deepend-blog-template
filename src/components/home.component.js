@@ -5,7 +5,7 @@ import events from "../events";
 const HomeComponentStyle = styled(motion.div)`
   position: relative;
   left: 5%;
-  top: 7vw;
+  top: 10vw;
   margin-bottom: 10vw;
   display: flex;
   flex-direction: row;
@@ -62,7 +62,7 @@ const HomeComponentStyle = styled(motion.div)`
       bottom: 0;
       width: auto;
       z-index: 100;
-      color: #f8f8ff;
+      color: ${(p) => p.theme.wColor};
     }
     .introBg {
       position: absolute;
@@ -74,6 +74,7 @@ const HomeComponentStyle = styled(motion.div)`
   @media (max-width: 750px) {
     font-size: 16px;
     flex-direction: column;
+    top: 20vw;
     .intro {
       .logo {
         font-size: 50px;

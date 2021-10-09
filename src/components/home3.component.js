@@ -74,11 +74,11 @@ const HomeComponentStyle = styled(motion.div)`
     width: auto;
   }
   @media (max-width: 1200px) {
-    margin-top: 10vw;
+    top: 10vw;
   }
   @media (max-width: 950px) {
     flex-direction: column;
-    margin-top: 20vw;
+    top: 20vw;
     .intro {
       height: 200px;
       .logo {

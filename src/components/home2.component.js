@@ -46,13 +46,13 @@ const Home2Style = styled(motion.div)`
       width: 300px;
     }
   }
-  @media (min-width: 1450px) {
+  @media (max-width: 1450px) {
     background-position: 0 -60vw;
   }
-  @media (min-width: 1800px) {
+  @media (max-width: 1800px) {
     background-position: 0 -60vw;
   }
-  @media (min-width: 1500px) {
+  @media (max-width: 1500px) {
     background-position: 0 -60vw;
   }
   @media (max-width: 1000px) {
@@ -61,10 +61,11 @@ const Home2Style = styled(motion.div)`
   }
   @media (max-width: 750px) {
     padding: 10px;
-    width: calc(100%);
+    width: 100%;
     background-position: 0 -50vw;
     margin: 0;
-    margin-top: 10vw;
+    top: 10vw;
+    padding-top: 10vw;
     height: 100vw;
     .intro {
       .welcome {
@@ -86,10 +87,11 @@ const Home2Style = styled(motion.div)`
     }
   }
   @media (max-width: 520px) {
-    margin-top: 12vw;
+    margin: 0;
+    top: 15vw;
     padding-left: 5vw;
-    background-position: -50vw -110vw;
-    width: 100vw;
+    background-position: top;
+    width: 90vw;
     height: 120vw;
     .aboutUs {
       * {

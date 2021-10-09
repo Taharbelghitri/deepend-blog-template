@@ -12,6 +12,7 @@ import sunIcon from "../icons/sun-icon.png";
 const NavbarHorizontalStyle = styled(motion.div)`
   width: 100vw;
   height: 10vw;
+  min-height: 50px;
   z-index: 20000;
   position: fixed;
   top: 0;
@@ -19,11 +20,17 @@ const NavbarHorizontalStyle = styled(motion.div)`
   display: none;
   background-color: ${(p) => p.theme.bg};
   opacity: 0;
+  display: none;
+  padding-left: 5%;
+  padding-right: 5%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   .icon {
-    position: absolute;
+    position: relative;
     height: 5vw;
     width: 5vw;
-    right: 5vw;
+    /* right: 5vw; */
     z-index: 10001;
     cursor: pointer;
     background-image: url(${(p) => p.icon});
@@ -34,16 +41,17 @@ const NavbarHorizontalStyle = styled(motion.div)`
     background-color: "#191919";
   }
   .logo {
-    position: absolute;
-    display: flex;
-    left: 5vw;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+    position: relative;
+    /* display: flex; */
+    /* left: 5vw; */
+    /* justify-content: center;
+    align-items: center; */
+    height: auto;
     color: ${(p) => p.theme.wColor};
     cursor: pointer;
-    display: flex;
-    font-size: 5vw;
+    /* display: flex; */
+    font-size: 20px;
+    width: 50%;
   }
   .navbar {
     position: absolute;
@@ -120,12 +128,11 @@ const NavbarHorizontalStyle = styled(motion.div)`
     }
   }
   .theme {
-    position: absolute;
-    top: 1.5vw;
-    right: 15vw;
+    position: relative;
+    /* top: 1.5vw;
+    right: 15vw; */
     height: 7vw;
     width: 5%;
-
     .light,
     .dark {
       position: absolute;
@@ -163,15 +170,15 @@ const NavbarHorizontalStyle = styled(motion.div)`
   }
   @media (max-width: 1100px) {
     height: 7vw;
-    display: block;
+    display: flex;
     .icon,
     .theme {
       height: 3vw;
       width: 3vw;
-      top: 2vw;
+      /* top: 2vw; */
     }
     .logo {
-      font-size: 3vw;
+      font-size: 20px;
     }
   }
   @media (max-width: 800px) {
@@ -180,10 +187,10 @@ const NavbarHorizontalStyle = styled(motion.div)`
     .theme {
       height: 4vw;
       width: 4vw;
-      top: 1.5vw;
+      /* top: 1.5vw; */
     }
     .logo {
-      font-size: 5vw;
+      font-size: 20px;
     }
   }
 `;
@@ -300,29 +307,6 @@ const NavbarHorizontal = () => {
       transition={{ opacity: { duration: 0.5, delay: 1.2 } }}
       icon={icon}
     >
-      <motion.div
-        className="icon"
-        transition={{
-          duration: 0.01,
-        }}
-        onClick={async () => {
-          if (isVisible === "true") {
-            console.log("false");
-            ShowNavbar.start({ opacity: 0, zIndex: -1000, display: "none" });
-            setIcon(menuIcon);
-            setVIsibile("false");
-          } else {
-            console.log("true");
-            await ShowNavbar.start({ display: "flex" });
-            ShowNavbar.start({
-              opacity: 1,
-              zIndex: 10000,
-            });
-            setIcon(cancelIcon);
-            setVIsibile("true");
-          }
-        }}
-      />
       <span
         className="logo"
         onClick={() => {
@@ -355,6 +339,30 @@ const NavbarHorizontal = () => {
           }}
         />
       </div>
+      <motion.div
+        className="icon"
+        transition={{
+          duration: 0.01,
+        }}
+        onClick={async () => {
+          if (isVisible === "true") {
+            console.log("false");
+            ShowNavbar.start({ opacity: 0, zIndex: -1000, display: "none" });
+            setIcon(menuIcon);
+            setVIsibile("false");
+          } else {
+            console.log("true");
+            await ShowNavbar.start({ display: "flex" });
+            ShowNavbar.start({
+              opacity: 1,
+              zIndex: 10000,
+            });
+            setIcon(cancelIcon);
+            setVIsibile("true");
+          }
+        }}
+      />
+
       <motion.div className="navbar" animate={ShowNavbar}>
         {Object.keys(DownElmnts).map((e, i) => {
           return (
